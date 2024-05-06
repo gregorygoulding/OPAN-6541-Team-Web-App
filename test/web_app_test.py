@@ -7,13 +7,13 @@ from app.models.product import Product
 def test_home_page(test_client):
     response = test_client.get("/")
     assert response.status_code == 200
-    assert b"<h1>Home</h1>" in response.data
+    assert b"<h1>The Local Farmer's Market Stand</h1>" in response.data
 
 
 def test_about_page(test_client):
     response = test_client.get("/about")
     assert response.status_code == 200
-    assert b"<h1>About</h1>" in response.data
+    assert b"<h1>About The Local Farmer's Market Stand</h1>" in response.data
 
 
 def test_products_page(test_client):
@@ -29,9 +29,9 @@ def test_products_page(test_client):
     response = test_client.get("/products")
     assert response.status_code == 200
     assert b"<h1>Products</h1>" in response.data
-    assert b"Textbook" in response.data
-    assert b"Cup of Tea" in response.data
-    assert b"Strawberries" in response.data
+    assert b"Ohio" in response.data
+    assert b"Hungarian" in response.data
+    assert b"Virginia" in response.data
 
     # clean up (clear products sheet):
     Product.destroy_all()
