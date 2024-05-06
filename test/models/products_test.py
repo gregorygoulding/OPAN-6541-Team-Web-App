@@ -10,7 +10,9 @@ def test_products(model_context):
     assert Product.service.document_id == GOOGLE_SHEETS_TEST_DOCUMENT_ID
 
     # DESTROY ALL:
-
+    products = Product.all()
+    if len(products) == 0:
+        Product.seed()
     Product.destroy_all()
 
     # SEED RECORDS:
